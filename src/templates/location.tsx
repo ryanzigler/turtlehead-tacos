@@ -61,6 +61,8 @@ export const config: TemplateConfig = {
       "dm_directoryParents.slug",
       "dm_directoryParents.meta",
       "dm_directoryParents.c_addressRegionDisplayName",
+      "c_cateringPhoneNumber",
+      "neighborhood",
     ],
     // The entity language profiles that documents will be generated for.
     localization: {
@@ -165,7 +167,6 @@ const Location: Template<TemplateRenderProps> = ({
   document,
 }) => {
   const {
-    name,
     address,
     hours,
     mainPhone,
@@ -173,21 +174,34 @@ const Location: Template<TemplateRenderProps> = ({
     description,
     siteDomain,
     dm_directoryParents,
+    c_cateringPhoneNumber,
+    neighborhood,
+    _site,
   } = document;
 
   return (
     <>
       <PageLayout>
-        <Banner name={name} address={address} />
+        <Banner
+          name={`${_site.name} ${neighborhood ? `- ${neighborhood}` : ""}`}
+          address={address}
+        />
         <div className="centered-container">
           <BreadCrumbs
             breadcrumbs={dm_directoryParents}
             baseUrl={relativePrefixToRoot}
           />
           <div className="grid gap-x-10 gap-y-10 md:grid-cols-2">
-            <Details address={address} phone={mainPhone} services={services} />
+            <Details
+              address={address}
+              phone={mainPhone}
+              services={services}
+              catering={c_cateringPhoneNumber}
+            />
             {hours && <Hours title={"Restaurant Hours"} hours={hours} />}
-            {description && <About name={name} description={description} />}
+            {description && (
+              <About name={_site.name} description={description} />
+            )}
           </div>
         </div>
       </PageLayout>

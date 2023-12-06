@@ -73,16 +73,16 @@ const Index: Template<TemplateRenderProps> = ({
   relativePrefixToRoot,
   document,
 }) => {
-  const { dm_directoryChildren } = document;
+  const { dm_directoryChildren, _site } = document;
 
   return (
     <>
       <PageLayout>
-        <Banner name={"Turtlehead Tacos"} />
+        <Banner name={_site.name} />
         <div className="centered-container">
           <div className="section space-y-14 px-10">
             <DirectoryRootGrid
-              name={"Turtlehead Tacos"}
+              name={_site.name}
               directoryChildren={dm_directoryChildren}
               relativePrefixToRoot={relativePrefixToRoot}
             />

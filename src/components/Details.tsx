@@ -7,9 +7,10 @@ export interface DetailsProps {
   address: any;
   phone?: string;
   services?: string[];
+  catering?: string;
 }
 
-const Details = ({ address, phone, services }: DetailsProps) => {
+const Details = ({ address, phone, services, catering }: DetailsProps) => {
   return (
     <>
       <div className="border-b border-gray-300 bg-gray-100 shadow-md rounded-lg p-2 px-4 py-5 sm:p-6">
@@ -25,7 +26,14 @@ const Details = ({ address, phone, services }: DetailsProps) => {
           {phone && (
             <span>
               <a href={`tel:${phone}`} className="hover:underline">
-                {formatPhoneNumber(phone)}
+                <strong>Local:</strong> {formatPhoneNumber(phone)}
+              </a>
+            </span>
+          )}
+          {catering && (
+            <span>
+              <a href={`tel:${catering}`} className="hover:underline">
+                <strong>Catering:</strong> {formatPhoneNumber(catering)}
               </a>
             </span>
           )}

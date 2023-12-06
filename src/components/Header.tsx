@@ -3,12 +3,16 @@ import Cta from "./Cta";
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
+export interface HeaderProps {
+  _site?: any;
+}
+
 const navigation = [
   { name: "Home", href: "/" },
   { name: "About", href: "#" },
 ];
 
-const Header = () => {
+const Header = (props: HeaderProps) => {
   return (
     <Disclosure as="nav" className="bg-white shadow">
       {({ open }) => (

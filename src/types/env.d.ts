@@ -5,6 +5,9 @@
  *
  * https://github.com/vitejs/vite/issues/6194
  */
+interface ImportMetaEnv {
+  readonly YEXT_PUBLIC_EXTERNAL_IMAGE_API_BASE_URL: string;
+}
 interface ImportMeta {
-  readonly env: any;
+  readonly env: ImportMetaEnv;
 }
