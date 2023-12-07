@@ -1,22 +1,13 @@
-buildConfiguration:
-  buildCommand: npm run build:local
-  installDependenciesStep:
-    command: npm install
-    requiredFiles:
-      - package.json
-      - package-lock.json
-      - .npmrc
-livePreviewConfiguration:
-  setupCommand: "npm run dev -- --port 8080"
 siteStream:
   id: site-stream
-  entityId: turtlehead-tacos-site
+  entityId: turtlehead-tacos-demo-site
   fields:
     - name
     - logo
     - c_header
     - c_footer
+    - instagramHandle
+    - twitterHandle
   localization:
     locales:
       - en
-    primary: false
